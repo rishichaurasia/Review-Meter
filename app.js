@@ -7,6 +7,7 @@ const session = require('express-session');
 const passport = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo');
 const userController = require('./controllers/users_controller');
+const movieController = require('./controllers/movie_controller');
 const port = 5000;
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 
+app.use(express.static('public'));
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
@@ -35,9 +37,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
-app.get('/', (req, res) => {
-    return res.render('home', { msg: 'Handlebars are Cool!' });
-})
+app.get('/', movieController.fetchMovies);
+app.get('/movies/:id')
 
 // app.post('/users/sign-in', (req,res) => {
     
