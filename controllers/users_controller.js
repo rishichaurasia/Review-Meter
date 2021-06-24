@@ -1,4 +1,5 @@
 const User = require('../models/user')
+const bcrypt = require('bcryptjs');
 
 module.exports.signup = function(req,res) {
     if(req.isAuthenticated())
@@ -6,9 +7,14 @@ module.exports.signup = function(req,res) {
     return res.render('signup');
 };
 
-module.exports.createUser = function(req, res) {
+module.exports.createUser = async function(req, res) {
     if(req.body.password != req.body.confirmPassword)
         return res.redirect('back');
+    
+    // Hash password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    req.body.password = hashedPassword;
     
     User.findOne({email: req.body.email}, (err, user) => {
         if(err){

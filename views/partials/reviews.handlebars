@@ -16,17 +16,18 @@
                 <div class="d-flex flex-row justify-content-between">
                     <div class="d-flex flex-column">
                         <div class="d-flex flex-row align-items-center">
-                        <h4 class="card-title">{{this.title}}&ensp;</h4>
-                        <h6 class="card-subtitle text-muted">{{this.createdAt}}</h6>
+                            <h4 class="card-title">{{this.title}}&ensp;</h4>
+                            <h6 class="card-subtitle text-muted">{{this.createdAt}}</h6>
                         </div>
                         <div>
                             <h6 class="card-subtitle mb-2 text-muted">{{this.userId.name}}</h6>
                         </div>
                     </div>
                     <div class="d-flex flex-column">
-                        <h4 class="d-flex flex-row justify-content-end">{{this.rating}} / 5</h4>
+                        <h4 class="d-flex flex-row justify-content-end text-nowrap">{{this.rating}} / 5</h4>
                         {{#ifequal ../user._id this.userId._id}}
-                        <a class="delete-review-button" href="/review/{{this._id}}"><button class="btn btn-light">Delete</button></a>
+                        <a class="delete-review-button" href="/review/{{this._id}}"><button
+                                class="btn btn-light">Delete</button></a>
                         {{/ifequal}}
                     </div>
                 </div>

@@ -12,11 +12,11 @@
                     OUT</button></a>
             {{else}}
             <form class="d-flex" action="/users/create-session" method="POST">
-                <input class="form-control me-sm-2" name="email" type="text" placeholder="Email">
-                <input class="form-control me-sm-2" name="password" type="text" placeholder="Password">
+                <input class="form-control me-sm-2" name="email" type="email" placeholder="Email" required>
+                <input class="form-control me-sm-2" name="password" type="password" placeholder="Password" required>
                 <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="SIGN IN">
             </form>
-            <a href="users/sign-up"><button type="button" class="btn btn-light my-2 my-sm-0 ms-2">SIGN UP</button></a>
+            <a href="/users/sign-up"><button type="button" class="btn btn-light my-2 my-sm-0 ms-2">SIGN UP</button></a>
             {{/if}}
         </div>
     </div>

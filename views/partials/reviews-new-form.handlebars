@@ -4,10 +4,10 @@
     <!-- TITLE -->
     <div class="form-group">
         <label for="review-title">Title</label>
-        <input class="form-control" id="review-title" type="text" name="title" />
+        <input class="form-control" id="review-title" type="text" name="title" required>
     </div>
 
-    <input type="hidden" class="form-control" name="movieId" value="{{movie.id}}">
+    <input type="hidden" class="form-control" name="movieId" value="{{movie.id}}" required>
 
     <!-- MOVIE TITLE -->
     <div class="form-group">
@@ -18,7 +18,7 @@
     <!-- RATING -->
     <div class="form-group">
         <label for="rating">Rating</label>
-        <select id="rating" name="rating" class="form-control">
+        <select id="rating" name="rating" class="form-control" required>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
