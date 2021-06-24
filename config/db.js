@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Connect to db
-const database = mongoose.connect('mongodb://localhost:27017/review-meter', { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+const database = mongoose.connect(process.env.DB_PATH, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log('Connected to db...');
 });
 

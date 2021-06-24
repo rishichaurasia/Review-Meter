@@ -1,27 +1,18 @@
+<form action="/movies/search" class="d-flex mx-auto w-50 my-5">
+    <input name="query" class="form-control me-sm-2" type="text" placeholder="Search">
+    <input class="btn btn-secondary my-2 my-sm-0" type="submit">
+</form>
+
 <h2 class="ms-4 mt-2">{{msg}}</h2>
-{{!-- <div class="container">
-    <h3 class="mb-4 mb-sm-0">Now Playing</h3>
-    <div class="card-columns my-3">
-        {{#each movies}}
-        <div class="card h-100">
-            <div class="card-body text-center">
-                <h4 style="font-size: 20px;">{{this.title}}</h4>
-            </div>
-            <a href="/movies/{{this.id}}" class="stretched-link"></a>
-            <img class="card-img-bottom" alt="{{this.title}}" src="https://image.tmdb.org/t/p/w500{{this.poster_path}}">
-        </div>
-        {{/each}}
-    </div>
-</div> --}}
 
 <div class="row row-cols-1 row-cols-md-4 g-4 m-2">
     {{#each movies}}
     <div class="col">
         <a href="/movies/{{this.id}}" style="text-decoration: none; color: inherit;">
-            <div class="card h-100 bg-dark">
+            <div class="card h-100 text-white bg-dark">
                 <img src="https://image.tmdb.org/t/p/w500{{this.poster_path}}" class="card-img-top" width="30%"
                     alt="...">
-                <div class="card-body">
+                <div class="card-body bg-dark">
                     <h5 class="card-title">{{this.title}}</h5>
                     <p class="card-text">{{this.overview}}</p>
                 </div>
@@ -30,5 +21,3 @@
     </div>
     {{/each}}
 </div>
-
-<script src="/javascript/home.js"></script>

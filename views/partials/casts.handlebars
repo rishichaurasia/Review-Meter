@@ -1,0 +1,9 @@
+<h2 class="display-6 mt-5">Cast:</h2>
+<div class="row row-cols-auto">
+    {{#each cast}}
+        <div class="col m-4">
+            <img class="row justify-content-center" src="https://image.tmdb.org/t/p/w200{{this.profile_path}}" width=140/>
+            <div class="row justify-content-center">{{this.name}}</div>
+        </div>
+	{{/each}}
+</div>

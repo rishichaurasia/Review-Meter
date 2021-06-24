@@ -31,10 +31,10 @@ module.exports.createUser = function(req, res) {
 }
 
 module.exports.createSession = function(req, res) {
-    return res.redirect('/');
+    return res.redirect('back');
 }
 
 module.exports.destroySession = function(req,res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('back');
 }

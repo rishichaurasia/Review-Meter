@@ -1,0 +1,21 @@
+<div class="container px-2">
+	<div class="row row-cols-auto">
+		<span id="rating" class="badge me-1">
+			{{rating}}
+		</span>
+		{{#each genres}}
+		<span class="badge bg-light text-dark me-1">
+			{{this.name}}
+		</span>
+		{{/each}}
+	</div>
+</div>
+<script>
+	const rating = parseFloat($("#rating").text());
+	if (rating < 4)
+		$("#rating").addClass("bg-danger")
+	else if (rating < 7)
+		$("#rating").addClass("bg-warning")
+	else
+		$("#rating").addClass("bg-success")
+</script>

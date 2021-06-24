@@ -1,0 +1,21 @@
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col-4 text-center">
+            <img class="img-fluid" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+        </div>
+        <div class="col ms-5">
+            <h2 class="display-5">{{movie.title}}</h2>
+            {{> badges genres=movie.genres rating=movie.vote_average}}
+            <div id="date" class="lead mt-3 text-muted"></div>
+            <p class="lead mt-3">{{movie.overview}}</p>
+        </div>
+    </div>
+    {{> casts cast=cast}}
+    {{> reviews}}
+
+</div>
+<script>
+    const date = new Date('{{movie.release_date}}');
+    $('#date').html(date.toDateString());
+</script>
+<script src="/javascript/movie.js"></script>
